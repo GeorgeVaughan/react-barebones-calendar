@@ -1,0 +1,28 @@
+{
+  "name": "react-barebones-calendar",
+  "version": "0.0.0",
+  "private": false,
+  "author": "George Vaughan <georgevaughandev@gmail.com>",
+  "license": "MIT",
+  "main": "index.js",
+  "dependencies": {
+    "moment": "^2.19.2",
+    "react": "^16.1.1",
+    "react-dom": "^16.1.1",
+    "react-scripts": "1.0.17"
+  },
+  "devDependencies": {
+    "node-sass-chokidar": "0.0.3",
+    "npm-run-all": "^4.1.2"
+  },
+  "scripts": {
+    "start": "npm-run-all -p start:js start:css",
+    "start:js": "react-scripts start",
+    "start:css":
+      "npm run build:css && node-sass-chokidar --include-path src/ src/ -o src/ --watch",
+    "build": "react-scripts build",
+    "build:css": "node-sass-chokidar --include-path src/ src/ -o src/",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}

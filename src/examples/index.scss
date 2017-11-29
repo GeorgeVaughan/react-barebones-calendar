@@ -1,0 +1,31 @@
+.examples {
+  max-width: 1024px;
+  margin: 0px auto;
+  padding: 24px;
+  background: rgba(0, 0, 0, 0.02);
+  box-shadow: 0px 0px 1px #888888;
+
+  h1 {
+    margin: 24px;
+  }
+
+  .example {
+    margin: 24px;
+
+    .component {
+      display: inline-block;
+      padding: 12px;
+      box-shadow: 0px 0px 2px #888888;
+      border-width: 1px;
+      border-color: rgba(0, 0, 0, 0.1);
+    }
+
+    .description {
+      margin-top: 12px;
+    }
+
+    .code {
+      margin-top: 12px;
+    }
+  }
+}

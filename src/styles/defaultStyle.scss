@@ -1,0 +1,59 @@
+.calendar-day,
+.calendar-weekday-header {
+  display: inline-block;
+  vertical-align: top;
+  width: 44px;
+  padding: 0px 6px;
+}
+
+.calendar-day {
+  height: 32px;
+  line-height: 32px;
+  cursor: pointer;
+
+  > div {
+    border-radius: 100%;
+    width: 32px;
+    height: 32px;
+  }
+
+  &:hover > div,
+  &.hover > div {
+    background: #d6eaf8;
+  }
+  &.in-range > div {
+    background: #aed6f1;
+  }
+  &.selected > div {
+    background: #85c1e9;
+  }
+  &.empty {
+    pointer-events: none;
+  }
+  &.weekend {
+    pointer-events: none;
+    opacity: 0.25;
+  }
+}
+
+.calendar-weekday-header-row {
+  padding: 6px 0px;
+  border-bottom-style: solid;
+  border-width: 1px;
+  border-color: #888888;
+}
+
+.calendar-month {
+  padding: 16px;
+}
+
+.calendar-month-title {
+  margin: 6px 0px;
+}
+
+.calendar-month-grid {
+}
+
+.calendar {
+  text-align: center;
+}
