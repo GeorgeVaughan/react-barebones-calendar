@@ -1,10 +1,14 @@
 {
   "name": "react-barebones-calendar",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": false,
   "author": "George Vaughan <georgevaughandev@gmail.com>",
   "license": "MIT",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GeorgeVaughan/react-barebones-calendar"
+  },
   "dependencies": {
     "moment": "^2.19.2",
     "react": "^16.1.1",
