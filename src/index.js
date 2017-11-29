@@ -1,7 +1,10 @@
-export { default as Calendar } from "./components/Calendar";
-export { default as Day } from "./components/Day";
-export { default as Month } from "./components/Month";
-export { default as MonthGrid } from "./components/MonthGrid";
-export { default as MonthTitle } from "./components/MonthTitle";
-export { default as Week } from "./components/Week";
-export { default as WeekHeader } from "./components/WeekHeader";
+import React from "react";
+import ReactDOM from "react-dom";
+import registerServiceWorker from "./registerServiceWorker";
+
+import Demo from "./Demo";
+
+import "./index.css";
+
+ReactDOM.render(<Demo />, document.getElementById("root"));
+registerServiceWorker();
