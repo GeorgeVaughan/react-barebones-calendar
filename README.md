@@ -1,6 +1,7 @@
 # react-barebones-calendar
 
 A simple fully customizable calendar for react.
+
 ![react-barebones-calendar demo-gif](https://raw.githubusercontent.com/GeorgeVaughan/react-barebones-calendar/master/demo.gif)
 
 ## Getting Started
