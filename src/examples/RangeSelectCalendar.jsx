@@ -4,7 +4,7 @@ import moment from "moment";
 import Calendar from "components/Calendar";
 import { getMonthsFrom } from "components/utils/MomentHelpers";
 import {
-  selectedModifier,
+  sameDayModifier,
   inRangeModifier,
   emptyModifier,
   weekendModifier
@@ -26,14 +26,17 @@ class RangeSelectCalendar extends Component {
     const { monthMoments, startDay, endDay, hoverDay, selecting } = this.state;
 
     const modifiers = [
-      selectedModifier(startDay),
-      selectedModifier(endDay),
+      sameDayModifier("selected start", startDay),
+      sameDayModifier("selected end", endDay),
       emptyModifier,
       weekendModifier,
-      inRangeModifier("in-range", startDay, endDay)
+      inRangeModifier("in-range", startDay, endDay, true)
     ];
     if (hoverDay && selecting === "END") {
-      modifiers.push(inRangeModifier("hover", startDay, hoverDay));
+      modifiers.push(
+        inRangeModifier("in-range-hover", startDay, hoverDay, true)
+      );
+      modifiers.push(sameDayModifier("end", hoverDay));
     }
 
     return (

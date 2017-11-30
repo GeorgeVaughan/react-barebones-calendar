@@ -1,38 +1,74 @@
+$highlight-color: #3498db;
+
+$day-height: 30px;
+$day-width: 40px;
+$day-min-dim: min($day-width, $day-height);
+
 .calendar-day,
 .calendar-weekday-header {
   display: inline-block;
   vertical-align: top;
-  width: 44px;
+  width: $day-width;
   padding: 0px 6px;
 }
 
 .calendar-day {
-  height: 32px;
+  height: 100%;
   line-height: 32px;
   cursor: pointer;
 
   > div {
     border-radius: 100%;
-    width: 32px;
-    height: 32px;
+    width: $day-min-dim;
+    height: $day-min-dim;
   }
 
   &:hover > div,
   &.hover > div {
-    background: #d6eaf8;
+    background: rgba($highlight-color, 0.2);
   }
-  &.in-range > div {
-    background: #aed6f1;
+  &.in-range {
+    background: rgba($highlight-color, 0.25);
   }
-  &.selected > div {
-    background: #85c1e9;
+  &.in-range-hover {
+    background: rgba($highlight-color, 0.2);
+  }
+  &.in-range,
+  &.in-range-hover {
+    &.start:not(.end) {
+      background-clip: content-box;
+      > div {
+        float: left;
+      }
+      padding-right: 0px;
+      border-top-left-radius: 50%;
+      border-bottom-left-radius: 50%;
+    }
+    &.end:not(.start) {
+      background-clip: content-box;
+      > div {
+        float: right;
+      }
+      padding-left: 0px;
+      border-top-right-radius: 50%;
+      border-bottom-right-radius: 50%;
+    }
+    &.start.end {
+      background: none;
+    }
+  }
+  &.selected {
+    color: #ffffff;
+    > div {
+      background: rgba($highlight-color, 0.5);
+    }
   }
   &.empty {
     pointer-events: none;
   }
   &.weekend {
     pointer-events: none;
-    opacity: 0.25;
+    opacity: 0.3;
   }
 }
 

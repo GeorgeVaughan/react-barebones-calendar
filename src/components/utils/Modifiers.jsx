@@ -8,10 +8,16 @@ export const sameDayModifier = (className, selectedDay) => ({ dayMoment }) =>
 export const selectedModifier = selectedDay =>
   sameDayModifier("selected", selectedDay);
 
-export const inRangeModifier = (className, startDay, endDay) => ({
-  dayMoment
-}) =>
-  moment.isMoment(dayMoment) && dayMoment.isBetween(startDay, endDay)
+export const inRangeModifier = (
+  className,
+  startDay,
+  endDay,
+  inclusive = false
+) => ({ dayMoment }) =>
+  moment.isMoment(dayMoment) &&
+  (dayMoment.isBetween(startDay, endDay) ||
+    (inclusive &&
+      (isSameDay(dayMoment, startDay) || isSameDay(dayMoment, endDay))))
     ? className
     : "";
 
