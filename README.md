@@ -17,7 +17,7 @@ To run the demo on your computer:
 * `npm start`
 * Visit http://localhost:3000/ on your browser
 
-### Example code
+## Examples
 
 View all the example code on GitHub: [src/examples/](https://github.com/GeorgeVaughan/react-barebones-calendar/tree/master/src/examples)
 
