@@ -19,7 +19,7 @@ To run the demo on your computer:
 
 ## Examples
 
-View all the example code on GitHub: [src/examples/](https://github.com/GeorgeVaughan/react-barebones-calendar/tree/master/src/examples)
+View all the example code in: [src/examples/](https://github.com/GeorgeVaughan/react-barebones-calendar/tree/master/src/examples)
 
 The basic example is displayed below:
 
