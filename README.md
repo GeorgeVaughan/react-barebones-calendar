@@ -2,8 +2,6 @@
 
 A simple fully customizable calendar for react.
 
-![react-barebones-calendar example](https://raw.githubusercontent.com/GeorgeVaughan/react-barebones-calendar/master/demo.png)
-
 ## Getting Started
 ### Installation
 
@@ -21,4 +19,40 @@ To run the demo on your computer:
 
 ### Example code
 
-View the example code in [src/examples/](https://github.com/GeorgeVaughan/react-barebones-calendar/tree/master/src/examples)
+View all the example code on GitHub: [src/examples/](https://github.com/GeorgeVaughan/react-barebones-calendar/tree/master/src/examples)
+
+The basic example is displayed below:
+
+![react-barebones-calendar example](https://raw.githubusercontent.com/GeorgeVaughan/react-barebones-calendar/master/demo.png)
+
+```js
+class BasicCalendar extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      monthMoments: getMonthsFrom(moment(), 1),
+      selectedDay: moment()
+    };
+  }
+  render() {
+    const { monthMoments, selectedDay } = this.state;
+    return (
+      <Calendar
+        monthGridProps={{
+          monthMoments
+        }}
+        dayProps={{
+          modifiers: [
+            selectedModifier(selectedDay),
+            emptyModifier,
+            weekendModifier
+          ],
+          onClick: (_, { dayMoment }) =>
+            this.setState({ selectedDay: dayMoment })
+        }}
+      />
+    );
+  }
+}
+```
