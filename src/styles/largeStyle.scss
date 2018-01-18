@@ -1,10 +1,10 @@
 @import "./variables";
 
-$day-width: 50px;
-$day-height: 40px;
-$day-inner-size: 28px;
+$day-width: 120px;
+$day-height: 90px;
+$day-inner-size: 80px;
 $day-font-size: m;
 
-.calendar {
+.calendar.calendar-large {
   @include calendar($day-width, $day-height, $day-inner-size, $day-font-size);
 }

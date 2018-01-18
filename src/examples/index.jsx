@@ -5,6 +5,7 @@ import RangeSelectCalendar from "examples/RangeSelectCalendar";
 import DropdownCalendar from "examples/DropdownCalendar";
 import ButtonNavigationCalendar from "examples/ButtonNavigationCalendar";
 import ScrollCalendar from "examples/ScrollCalendar";
+import LargeCalendar from "examples/LargeCalendar";
 
 import "styles/defaultStyle.css";
 import "./index.css";
@@ -38,6 +39,11 @@ const EXAMPLES = [
     title: "Scroll Calendar",
     component: ScrollCalendar,
     description: "This component shows a calendar that is scrollable."
+  },
+  {
+    title: "Large Calendar",
+    component: LargeCalendar,
+    description: "This components shows a large calendar"
   }
 ];
 

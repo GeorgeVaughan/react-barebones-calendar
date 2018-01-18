@@ -27,7 +27,9 @@ class RangeSelectCalendar extends Component {
 
     const modifiers = [
       sameDayModifier("selected start", startDay),
-      sameDayModifier("selected end", endDay),
+      endDay || hoverDay
+        ? sameDayModifier("selected end", endDay)
+        : sameDayModifier("selected end", startDay),
       emptyModifier,
       weekendModifier,
       inRangeModifier("in-range", startDay, endDay, true)

@@ -1,0 +1,100 @@
+@import "./colors";
+
+@mixin center-content() {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin calendar($day-width, $day-height, $day-inner-size, $day-font-size) {
+  text-align: center;
+  font-size: map-get($font-sizes, $day-font-size);
+
+  .calendar-day,
+  .calendar-weekday-header {
+    display: inline-block;
+    vertical-align: top;
+    width: $day-width;
+  }
+
+  .calendar-day {
+    width: $day-width;
+    height: $day-height;
+    cursor: pointer;
+    @include center-content();
+
+    > div {
+      width: $day-inner-size;
+      height: $day-inner-size;
+      line-height: $day-inner-size;
+      border-radius: 100%;
+      z-index: 1;
+    }
+
+    &:hover > div,
+    &.hover > div {
+      background: rgba($highlight-color, 0.2);
+    }
+    &.in-range:before {
+      background: rgba($highlight-color, 0.25);
+    }
+    &.in-range-hover:before {
+      background: rgba($highlight-color, 0.2);
+    }
+    &.in-range,
+    &.in-range-hover {
+      position: relative;
+      $start-end-side-gap: (($day-width - $day-height) / 2);
+      &:before {
+        content: "";
+        position: absolute;
+        left: 0px;
+        right: 0px;
+        top: 0px;
+        bottom: 0px;
+      }
+
+      &.start:before {
+        border-top-left-radius: 50%;
+        border-bottom-left-radius: 50%;
+        left: $start-end-side-gap;
+      }
+      &.end:before {
+        border-top-right-radius: 50%;
+        border-bottom-right-radius: 50%;
+        right: $start-end-side-gap;
+      }
+    }
+    &.selected {
+      color: #ffffff;
+      > div {
+        background: rgba($highlight-color, 0.5);
+      }
+    }
+    &.empty {
+      pointer-events: none;
+    }
+    &.weekend {
+      pointer-events: none;
+      opacity: 0.3;
+    }
+  }
+
+  .calendar-weekday-header-row {
+    padding: 6px 0px;
+    border-bottom-style: solid;
+    border-width: 1px;
+    border-color: #888888;
+  }
+
+  .calendar-month {
+    padding: 16px;
+  }
+
+  .calendar-month-title {
+    margin: 6px 0px;
+  }
+
+  .calendar-month-grid {
+  }
+}
