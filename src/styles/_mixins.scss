@@ -23,6 +23,7 @@
     display: inline-block;
     width: $day-width;
     height: $day-height;
+    vertical-align: top;
     cursor: pointer;
     @include center-content();
     > div {

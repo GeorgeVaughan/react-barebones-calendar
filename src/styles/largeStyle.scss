@@ -25,6 +25,10 @@ $day-in-range-color: rgba($highlight-color, 0.25);
     $day-selected-color,
     $day-in-range-color
   );
+  .calendar-weekday-header {
+    text-align: right;
+    padding: 5px;
+  }
   .calendar-day {
     $day-padding: 5px;
     $date-height: 20px;
