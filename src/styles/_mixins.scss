@@ -36,7 +36,7 @@
     @include calendar-day-in-range($day-width, $day-height, $day-border-radius, $day-hover-color, $day-in-range-color);
     @include calendar-day-selected($day-selected-color);
     @include calendar-day-empty();
-    @include calendar-day-weekend();
+    @include calendar-day-invalid();
   }
   .calendar-weekday-header {
     display: inline-block;
@@ -105,8 +105,8 @@
     pointer-events: none;
   }
 }
-@mixin calendar-day-weekend() {
-  &.weekend {
+@mixin calendar-day-invalid() {
+  &.invalid {
     pointer-events: none;
     opacity: 0.3;
   }

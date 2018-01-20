@@ -3,7 +3,7 @@ import moment from "moment";
 
 import Calendar from "components/Calendar";
 import { getMonthsFrom } from "components/utils/MomentHelpers";
-import { emptyModifier, weekendModifier } from "components/utils/Modifiers";
+import { emptyModifier, isBeforeModifier } from "components/utils/Modifiers";
 import { combineClasses } from "components/utils/PropHelpers";
 
 import Popup from "./utils/Popup";
@@ -87,6 +87,8 @@ class LargeCalendar extends Component {
   constructor(props) {
     super(props);
 
+    this.today = moment().startOf("day");
+
     this.state = {
       monthMoments: getMonthsFrom(moment(), 1)
     };
@@ -100,7 +102,7 @@ class LargeCalendar extends Component {
           monthMoments
         }}
         dayProps={{
-          modifiers: [emptyModifier, weekendModifier],
+          modifiers: [emptyModifier, isBeforeModifier("invalid", this.today)],
           renderOverride: props => <LargeCalendarDay {...props} />
         }}
       />
