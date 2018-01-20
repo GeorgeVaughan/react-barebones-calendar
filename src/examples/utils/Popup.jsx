@@ -1,7 +1,5 @@
 import React from "react";
 
-import withRenderOverride from "components/utils/componentWrappers/withRenderOverride";
-
 import "./Popup.css";
 
 class Popup extends React.Component {

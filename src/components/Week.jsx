@@ -2,7 +2,7 @@ import React from "react";
 
 import Day from "./Day";
 
-import defaultComponent from "components/utils/componentWrappers/defaultComponent";
+import asDefaultComponent from "components/utils/componentWrappers/asDefaultComponent";
 
 const Week = ({ dayMoments, dayProps, ...props }) => (
   <div {...props}>
@@ -12,4 +12,4 @@ const Week = ({ dayMoments, dayProps, ...props }) => (
   </div>
 );
 
-export default defaultComponent(Week, "calendar-week");
+export default asDefaultComponent(Week, "calendar-week");

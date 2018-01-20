@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import MonthTitle from "./MonthTitle";
 import Week from "./Week";
 
-import defaultComponent from "components/utils/componentWrappers/defaultComponent";
+import asDefaultComponent from "components/utils/componentWrappers/asDefaultComponent";
 import { getDaysInMonth2D, isSameMonth } from "components/utils/MomentHelpers";
 
 class Month extends Component {
@@ -55,4 +55,4 @@ Month.defaultProps = {
   firstDayOfTheWeek: 0
 };
 
-export default defaultComponent(Month, "calendar-month");
+export default asDefaultComponent(Month, "calendar-month");

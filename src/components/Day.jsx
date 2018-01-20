@@ -1,6 +1,6 @@
 import React from "react";
 
-import defaultComponent from "components/utils/componentWrappers/defaultComponent";
+import asDefaultComponent from "components/utils/componentWrappers/asDefaultComponent";
 
 const Day = ({ dayMoment, ...props }) => (
   <div {...props}>
@@ -8,4 +8,4 @@ const Day = ({ dayMoment, ...props }) => (
   </div>
 );
 
-export default defaultComponent(Day, "calendar-day");
+export default asDefaultComponent(Day, "calendar-day");
