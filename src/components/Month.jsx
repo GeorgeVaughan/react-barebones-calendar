@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 import MonthTitle from "./MonthTitle";
+import WeekHeader from "components/WeekHeader";
 import Week from "./Week";
 
 import { asDefaultComponent } from "components/utils/ComponentWrappers";
@@ -28,6 +29,7 @@ class Month extends Component {
     const {
       monthMoment,
       monthTitleProps,
+      weekHeaderProps,
       weekProps,
       dayProps,
       firstDayOfTheWeek,
@@ -38,6 +40,7 @@ class Month extends Component {
     return (
       <div {...props}>
         <MonthTitle monthMoment={monthMoment} {...monthTitleProps} />
+        <WeekHeader {...weekHeaderProps} />
         {weeks.map((dayMoments, i) => (
           <Week
             key={i}

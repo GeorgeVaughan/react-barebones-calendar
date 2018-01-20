@@ -1,4 +1,4 @@
-$font-sizes: (xxs: 8px, xs: 10px, s: 12px, m: 16px, l: 24px);
+$font-sizes: (xxs: 8px, xs: 10px, s: 12px, m: 16px, l: 20px);
 
 @mixin font-size($font-size) {
   font-size: map-get($font-sizes, $font-size);

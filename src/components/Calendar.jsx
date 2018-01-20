@@ -1,6 +1,5 @@
 import React from "react";
 
-import WeekHeader from "components/WeekHeader";
 import MonthGrid from "components/MonthGrid";
 
 import {
@@ -10,20 +9,20 @@ import {
 } from "components/utils/ComponentWrappers";
 
 const Calendar = ({
-  weekHeaderProps,
   monthGridProps,
   monthProps,
   monthTitleProps,
+  weekHeaderProps,
   weekProps,
   dayProps,
   ...props
 }) => (
   <div {...props}>
-    <WeekHeader {...weekHeaderProps} />
     <MonthGrid
       {...monthGridProps}
       monthProps={monthProps}
       monthTitleProps={monthTitleProps}
+      weekHeaderProps={weekHeaderProps}
       weekProps={weekProps}
       dayProps={dayProps}
     />
