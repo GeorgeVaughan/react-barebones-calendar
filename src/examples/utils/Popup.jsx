@@ -1,6 +1,6 @@
 import React from "react";
 
-import overridable from "components/utils/componentWrappers/overridable";
+import withRenderOverride from "components/utils/componentWrappers/withRenderOverride";
 
 import "./Popup.css";
 
@@ -48,4 +48,4 @@ class Popup extends React.Component {
   }
 }
 
-export default overridable(Popup);
+export default withRenderOverride(Popup);

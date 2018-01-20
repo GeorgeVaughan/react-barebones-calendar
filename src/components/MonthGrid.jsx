@@ -4,7 +4,7 @@ import Month from "./Month";
 
 import combineWrappers from "components/utils/componentWrappers/combineWrappers";
 import withClassName from "components/utils/componentWrappers/withClassName";
-import overridable from "components/utils/componentWrappers/overridable";
+import withRenderOverride from "components/utils/componentWrappers/withRenderOverride";
 
 const MonthGrid = ({
   monthMoments,
@@ -30,5 +30,5 @@ const MonthGrid = ({
 
 export default combineWrappers(
   withClassName("calendar-month-grid"),
-  overridable
+  withRenderOverride
 )(MonthGrid);

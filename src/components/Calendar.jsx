@@ -5,7 +5,7 @@ import MonthGrid from "components/MonthGrid";
 
 import combineWrappers from "components/utils/componentWrappers/combineWrappers";
 import withClassName from "components/utils/componentWrappers/withClassName";
-import overridable from "components/utils/componentWrappers/overridable";
+import withRenderOverride from "components/utils/componentWrappers/withRenderOverride";
 
 const Calendar = ({
   weekHeaderProps,
@@ -28,6 +28,6 @@ const Calendar = ({
   </div>
 );
 
-export default combineWrappers(withClassName("calendar"), overridable)(
+export default combineWrappers(withClassName("calendar"), withRenderOverride)(
   Calendar
 );

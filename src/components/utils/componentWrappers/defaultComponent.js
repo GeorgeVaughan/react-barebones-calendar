@@ -1,7 +1,7 @@
 import withPropOverload from "./withPropOverload";
 import withModifiers from "./withModifiers";
 import withClassName from "./withClassName";
-import overridable from "./overridable";
+import withRenderOverride from "./withRenderOverride";
 import combineWrappers from "./combineWrappers";
 
 export default (element, className) =>
@@ -9,5 +9,5 @@ export default (element, className) =>
     withPropOverload,
     withModifiers,
     withClassName(className),
-    overridable
+    withRenderOverride
   )(element);
