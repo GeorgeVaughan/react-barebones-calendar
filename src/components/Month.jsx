@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import MonthTitle from "./MonthTitle";
 import Week from "./Week";
 
-import asDefaultComponent from "components/utils/componentWrappers/asDefaultComponent";
+import { asDefaultComponent } from "components/utils/ComponentWrappers";
 import { getDaysInMonth2D, isSameMonth } from "components/utils/MomentHelpers";
 
 class Month extends Component {

@@ -2,9 +2,11 @@ import React from "react";
 
 import Month from "./Month";
 
-import combineWrappers from "components/utils/componentWrappers/combineWrappers";
-import withClassName from "components/utils/componentWrappers/withClassName";
-import withRenderOverride from "components/utils/componentWrappers/withRenderOverride";
+import {
+  combineWrappers,
+  withClassName,
+  withRenderOverride
+} from "components/utils/ComponentWrappers";
 
 const MonthGrid = ({
   monthMoments,

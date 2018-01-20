@@ -2,7 +2,7 @@ import React from "react";
 
 import Day from "./Day";
 
-import asDefaultComponent from "components/utils/componentWrappers/asDefaultComponent";
+import { asDefaultComponent } from "components/utils/ComponentWrappers";
 
 const Week = ({ dayMoments, dayProps, ...props }) => (
   <div {...props}>

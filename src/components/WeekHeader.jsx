@@ -2,7 +2,7 @@ import React from "react";
 
 import { DAYS_OF_THE_WEEK } from "components/utils/Constants";
 import { reorderArray } from "components/utils/ArrayHelpers";
-import asDefaultComponent from "components/utils/componentWrappers/asDefaultComponent";
+import { asDefaultComponent } from "components/utils/ComponentWrappers";
 
 const WeekHeader = ({ weekdays, firstDayOfTheWeek, ...props }) => (
   <div {...props}>

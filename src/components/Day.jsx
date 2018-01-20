@@ -1,6 +1,6 @@
 import React from "react";
 
-import asDefaultComponent from "components/utils/componentWrappers/asDefaultComponent";
+import { asDefaultComponent } from "components/utils/ComponentWrappers";
 
 const Day = ({ dayMoment, ...props }) => (
   <div {...props}>
