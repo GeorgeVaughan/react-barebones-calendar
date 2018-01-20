@@ -23,7 +23,7 @@ To run the demo on your computer:
 
 View all the example code in [src/examples/](https://github.com/GeorgeVaughan/react-barebones-calendar/tree/master/src/examples)
 
-The basic example is displayed below:
+The basic example is shown along with the code below:
 
 ![react-barebones-calendar demo-png](https://raw.githubusercontent.com/GeorgeVaughan/react-barebones-calendar/master/demo.png)
 
@@ -58,3 +58,9 @@ class BasicCalendar extends Component {
   }
 }
 ```
+
+There are also more complex examples like the large calendar displayed below:
+
+![react-barebones-calendar large-demo-png](https://raw.githubusercontent.com/GeorgeVaughan/react-barebones-calendar/master/large-demo.png)
+
+The example code is available at [src/examples/](https://github.com/GeorgeVaughan/react-barebones-calendar/tree/master/src/examples)
