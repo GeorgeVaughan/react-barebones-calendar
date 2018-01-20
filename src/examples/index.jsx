@@ -43,7 +43,8 @@ const EXAMPLES = [
   {
     title: "Large Calendar",
     component: LargeCalendar,
-    description: "This components shows a large calendar"
+    description:
+      "This components shows a large calendar with the ability to add events to days."
   }
 ];
 

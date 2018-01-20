@@ -13,7 +13,6 @@ class Popup extends React.Component {
   componentDidMount() {
     document.addEventListener("mousedown", this.handleClickOutside);
   }
-
   componentWillUnmount() {
     document.removeEventListener("mousedown", this.handleClickOutside);
   }
@@ -23,6 +22,8 @@ class Popup extends React.Component {
     }
   };
   toggleOpen = () => {
+    const { onToggle } = this.props;
+    onToggle && onToggle(!this.state.open);
     this.setState({ open: !this.state.open });
   };
   onKeyDown = () => {
@@ -48,4 +49,4 @@ class Popup extends React.Component {
   }
 }
 
-export default withRenderOverride(Popup);
+export default Popup;

@@ -9,8 +9,8 @@ $day-border-radius: 0%;
 
 $highlight-color: #3498db;
 
-$day-hover-color: rgba($highlight-color, 0.2);
-$day-selected-color: none;
+$day-hover-color: rgba($highlight-color, 0.16);
+$day-selected-color: rgba($highlight-color, 0.2);
 $day-in-range-color: rgba($highlight-color, 0.25);
 
 .calendar.calendar-large {
@@ -25,4 +25,39 @@ $day-in-range-color: rgba($highlight-color, 0.25);
     $day-selected-color,
     $day-in-range-color
   );
+  .calendar-day {
+    $day-padding: 5px;
+    $date-height: 20px;
+    > div {
+      padding: $day-padding;
+    }
+    .calendar-date {
+      width: 100%;
+      height: $date-height;
+      line-height: 20px;
+      text-align: right;
+    }
+    .calendar-events {
+      @include font-size(s);
+      height: $day-inner-height - $date-height - ($day-padding * 2);
+      overflow-y: auto;
+      overflow-x: hidden;
+      .calendar-event {
+        text-align: left;
+        height: auto;
+        line-height: 12px;
+        padding: 2px;
+        background: rgba($highlight-color, 0.1);
+        margin-bottom: 5px;
+        .calendar-event-delete {
+          float: right;
+          height: 12px;
+          width: 12px;
+          @include font-size(s);
+          padding: 0px;
+          border: none;
+        }
+      }
+    }
+  }
 }
