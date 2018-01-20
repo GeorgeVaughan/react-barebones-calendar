@@ -43,6 +43,7 @@
     display: inline-block;
     vertical-align: top;
     width: $day-width;
+    @include font-size(s);
   }
   .calendar-weekday-header-row {
     padding: 6px 0px;
