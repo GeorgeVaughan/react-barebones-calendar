@@ -3,11 +3,7 @@ import moment from "moment";
 
 import Calendar from "components/Calendar";
 import { getMonthsFrom } from "components/utils/MomentHelpers";
-import {
-  selectedModifier,
-  emptyModifier,
-  weekendModifier
-} from "components/utils/Modifiers";
+import { emptyModifier, weekendModifier } from "components/utils/Modifiers";
 
 import "styles/largeStyle.css";
 
@@ -16,12 +12,11 @@ class LargeCalendar extends Component {
     super(props);
 
     this.state = {
-      monthMoments: getMonthsFrom(moment(), 1),
-      selectedDay: moment()
+      monthMoments: getMonthsFrom(moment(), 1)
     };
   }
   render() {
-    const { monthMoments, selectedDay } = this.state;
+    const { monthMoments } = this.state;
     return (
       <Calendar
         className="calendar-large"
@@ -29,13 +24,7 @@ class LargeCalendar extends Component {
           monthMoments
         }}
         dayProps={{
-          modifiers: [
-            selectedModifier(selectedDay),
-            emptyModifier,
-            weekendModifier
-          ],
-          onClick: (_, { dayMoment }) =>
-            this.setState({ selectedDay: dayMoment })
+          modifiers: [emptyModifier, weekendModifier]
         }}
       />
     );

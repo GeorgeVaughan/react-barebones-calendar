@@ -2,9 +2,27 @@
 
 $day-width: 120px;
 $day-height: 90px;
-$day-inner-size: 80px;
+$day-inner-width: 120px;
+$day-inner-height: 90px;
 $day-font-size: m;
+$day-border-radius: 0%;
+
+$highlight-color: #3498db;
+
+$day-hover-color: rgba($highlight-color, 0.2);
+$day-selected-color: none;
+$day-in-range-color: rgba($highlight-color, 0.25);
 
 .calendar.calendar-large {
-  @include calendar($day-width, $day-height, $day-inner-size, $day-font-size);
+  @include calendar(
+    $day-width,
+    $day-height,
+    $day-inner-width,
+    $day-inner-height,
+    $day-font-size,
+    $day-border-radius,
+    $day-hover-color,
+    $day-selected-color,
+    $day-in-range-color
+  );
 }
