@@ -4,6 +4,7 @@ import moment from "moment";
 import Calendar from "components/Calendar";
 import { getMonthsFrom } from "components/utils/MomentHelpers";
 import {
+  todayModifier,
   selectedModifier,
   emptyModifier,
   weekendModifier
@@ -31,6 +32,7 @@ class ScrollCalendar extends Component {
         }}
         dayProps={{
           modifiers: [
+            todayModifier,
             selectedModifier(selectedDay),
             emptyModifier,
             weekendModifier

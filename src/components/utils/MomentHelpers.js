@@ -1,5 +1,8 @@
 import moment from "moment";
 
+const TODAY = moment();
+export const getToday = () => TODAY;
+
 export const getDaysInMonth = moment => {
   const startOfMonth = moment.startOf("month");
   const numberOfDays = startOfMonth.daysInMonth();

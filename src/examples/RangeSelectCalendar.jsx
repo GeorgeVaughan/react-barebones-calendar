@@ -4,6 +4,7 @@ import moment from "moment";
 import Calendar from "components/Calendar";
 import { getMonthsFrom } from "components/utils/MomentHelpers";
 import {
+  todayModifier,
   sameDayModifier,
   inRangeModifier,
   emptyModifier,
@@ -30,6 +31,7 @@ class RangeSelectCalendar extends Component {
       endDay || hoverDay
         ? sameDayModifier("selected end", endDay)
         : sameDayModifier("selected end", startDay),
+      todayModifier,
       emptyModifier,
       weekendModifier,
       inRangeModifier("in-range", startDay, endDay, true)

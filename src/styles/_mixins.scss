@@ -32,6 +32,7 @@
       line-height: $day-inner-height;
       border-radius: $day-border-radius;
     }
+    @include calendar-day-today();
     @include calendar-day-hover($day-hover-color);
     @include calendar-day-in-range($day-width, $day-height, $day-border-radius, $day-hover-color, $day-in-range-color);
     @include calendar-day-selected($day-selected-color);
@@ -56,6 +57,11 @@
   }
   .calendar-month-title {
     margin: 6px 0px;
+  }
+}
+@mixin calendar-day-today() {
+  &.today .calendar-date {
+    font-weight: bold;
   }
 }
 @mixin calendar-day-hover($day-hover-color) {

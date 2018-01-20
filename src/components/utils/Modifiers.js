@@ -1,9 +1,11 @@
 import moment from "moment";
 
-import { isSameDay, isWeekend } from "components/utils/MomentHelpers";
+import { getToday, isSameDay, isWeekend } from "components/utils/MomentHelpers";
 
 export const sameDayModifier = (className, selectedDay) => ({ dayMoment }) =>
   isSameDay(dayMoment, selectedDay) ? className : "";
+
+export const todayModifier = sameDayModifier("today", getToday());
 
 export const isBeforeModifier = (className, selectedDay) => ({ dayMoment }) =>
   moment.isMoment(dayMoment) && dayMoment.isBefore(selectedDay)
