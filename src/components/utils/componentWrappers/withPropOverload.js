@@ -11,12 +11,11 @@ export default element => ({
   onMouseMove,
   onMouseLeave,
   ...props
-}) => {
-  return React.createElement(element, {
+}) =>
+  React.createElement(element, {
     onClick: overloadFunc(onClick, props),
     onMouseEnter: overloadFunc(onMouseEnter, props),
     onMouseMove: overloadFunc(onMouseMove, props),
     onMouseLeave: overloadFunc(onMouseLeave, props),
     ...props
   });
-};

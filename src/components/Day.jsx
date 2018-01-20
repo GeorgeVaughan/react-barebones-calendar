@@ -1,11 +1,11 @@
 import React from "react";
 
-import defaultComponent from "components/utils/defaultComponent";
+import defaultComponent from "components/utils/componentWrappers/defaultComponent";
 
-const Day = ({ dayMoment, className, ...props }) => (
-  <div className={"calendar-day " + className} {...props}>
+const Day = ({ dayMoment, ...props }) => (
+  <div {...props}>
     <div>{dayMoment ? dayMoment.format("D") : ""}</div>
   </div>
 );
 
-export default defaultComponent(Day);
+export default defaultComponent(Day, "calendar-day");

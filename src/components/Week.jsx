@@ -2,14 +2,14 @@ import React from "react";
 
 import Day from "./Day";
 
-import defaultComponent from "components/utils/defaultComponent";
+import defaultComponent from "components/utils/componentWrappers/defaultComponent";
 
-const Week = ({ className, dayMoments, dayProps, ...props }) => (
-  <div className={"calendar-week " + className} {...props}>
+const Week = ({ dayMoments, dayProps, ...props }) => (
+  <div {...props}>
     {dayMoments.map((dayMoment, i) => (
       <Day key={i} dayMoment={dayMoment} {...dayProps} />
     ))}
   </div>
 );
 
-export default defaultComponent(Week);
+export default defaultComponent(Week, "calendar-week");

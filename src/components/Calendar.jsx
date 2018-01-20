@@ -3,10 +3,11 @@ import React from "react";
 import WeekHeader from "components/WeekHeader";
 import MonthGrid from "components/MonthGrid";
 
-import overridable from "components/utils/overrideable";
+import combineWrappers from "components/utils/componentWrappers/combineWrappers";
+import withClassName from "components/utils/componentWrappers/withClassName";
+import overridable from "components/utils/componentWrappers/overridable";
 
 const Calendar = ({
-  className,
   weekHeaderProps,
   monthGridProps,
   monthProps,
@@ -15,7 +16,7 @@ const Calendar = ({
   dayProps,
   ...props
 }) => (
-  <div className={"calendar " + className} {...props}>
+  <div {...props}>
     <WeekHeader {...weekHeaderProps} />
     <MonthGrid
       {...monthGridProps}
@@ -27,4 +28,6 @@ const Calendar = ({
   </div>
 );
 
-export default overridable(Calendar);
+export default combineWrappers(withClassName("calendar"), overridable)(
+  Calendar
+);

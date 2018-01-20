@@ -2,10 +2,11 @@ import React from "react";
 
 import Month from "./Month";
 
-import overridable from "components/utils/overrideable";
+import combineWrappers from "components/utils/componentWrappers/combineWrappers";
+import withClassName from "components/utils/componentWrappers/withClassName";
+import overridable from "components/utils/componentWrappers/overridable";
 
 const MonthGrid = ({
-  className,
   monthMoments,
   monthProps,
   monthTitleProps,
@@ -13,7 +14,7 @@ const MonthGrid = ({
   dayProps,
   ...props
 }) => (
-  <div className={"calendar-month-grid " + className} {...props}>
+  <div {...props}>
     {monthMoments.map((monthMoment, i) => (
       <Month
         key={monthMoment.format("MMYYYY")}
@@ -27,4 +28,7 @@ const MonthGrid = ({
   </div>
 );
 
-export default overridable(MonthGrid);
+export default combineWrappers(
+  withClassName("calendar-month-grid"),
+  overridable
+)(MonthGrid);

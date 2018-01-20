@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import MonthTitle from "./MonthTitle";
 import Week from "./Week";
 
-import defaultComponent from "components/utils/defaultComponent";
+import defaultComponent from "components/utils/componentWrappers/defaultComponent";
 import { getDaysInMonth2D, isSameMonth } from "components/utils/MomentHelpers";
 
 class Month extends Component {
@@ -26,7 +26,6 @@ class Month extends Component {
   }
   render() {
     const {
-      className,
       monthMoment,
       monthTitleProps,
       weekProps,
@@ -37,7 +36,7 @@ class Month extends Component {
     const { weeks } = this.state;
 
     return (
-      <div className={"calendar-month " + className} {...props}>
+      <div {...props}>
         <MonthTitle monthMoment={monthMoment} {...monthTitleProps} />
         {weeks.map((dayMoments, i) => (
           <Week
@@ -56,4 +55,4 @@ Month.defaultProps = {
   firstDayOfTheWeek: 0
 };
 
-export default defaultComponent(Month);
+export default defaultComponent(Month, "calendar-month");

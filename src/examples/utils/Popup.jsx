@@ -1,6 +1,6 @@
 import React from "react";
 
-import overridable from "components/utils/overrideable";
+import overridable from "components/utils/componentWrappers/overridable";
 
 import "./Popup.css";
 

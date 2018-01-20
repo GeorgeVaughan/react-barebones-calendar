@@ -1,9 +1,12 @@
 import React from "react";
+import { combineClasses } from "components/utils/PropHelpers";
 
 export default element => ({ modifiers, className, ...props }) => {
   if (modifiers) {
-    const modifiedClassName =
-      className + " " + modifiers.map(m => m(props)).join(" ");
+    const modifiedClassName = combineClasses(
+      className,
+      ...modifiers.map(m => m(props))
+    );
     return React.createElement(element, {
       className: modifiedClassName,
       ...props
