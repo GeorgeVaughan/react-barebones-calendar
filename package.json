@@ -31,15 +31,16 @@
     "rimraf": "^2.6.2"
   },
   "scripts": {
-    "build":
-      "npm run clean && babel src --out-dir lib && node-sass-chokidar --include-path src/ src/ -o lib",
-    "clean": "rimraf lib",
-    "start": "npm-run-all -p start:js start:css",
-    "start:js": "react-scripts start",
-    "start:css":
-      "npm run build:css && node-sass-chokidar --include-path src/ src/ -o src/ --watch",
-    "build:js": "react-scripts build",
-    "build:css": "node-sass-chokidar --include-path src/ src/ -o src/",
+    "build-lib":
+      "npm run clean-lib && babel src --out-dir lib && node-sass-chokidar --include-path src/ src/ -o lib",
+    "clean-lib": "rimraf lib",
+    "start": "npm-run-all -p start-js start-css",
+    "start-js": "react-scripts start",
+    "start-css":
+      "npm run build-css && node-sass-chokidar --include-path src/ src/ -o src/ --watch",
+    "build": "npm-run-all build-js build-css",
+    "build-js": "react-scripts build",
+    "build-css": "node-sass-chokidar --include-path src/ src/ -o src/",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   }
