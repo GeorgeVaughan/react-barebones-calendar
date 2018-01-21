@@ -13,6 +13,8 @@ A simple fully customizable calendar for react.
 
 ### Run Demo
 
+To view the demos on a web page go to https://GeorgeVaughan.github.io/react-barebones-calendar
+
 To run the demo on your computer:
 * Clone the react-barebones-calendar repository from https://github.com/GeorgeVaughan/react-barebones-calendar
 * `npm install`
