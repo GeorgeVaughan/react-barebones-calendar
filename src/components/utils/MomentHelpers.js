@@ -69,3 +69,15 @@ export const isSameMonth = (lhs, rhs) =>
   lhs.year() === rhs.year();
 
 export const isWeekend = m => moment.isMoment(m) && m.day() % 6 === 0;
+
+export const sortMoments = moments =>
+  moments.sort((a, b) => {
+    if (a.isAfter(b)) return 1;
+    if (a.isBefore(b)) return -1;
+    return 0;
+  });
+
+export const getStartAndEndDay = (day1, day2) => {
+  const [startDay, endDay] = sortMoments([day1, day2]);
+  return { startDay, endDay };
+};
