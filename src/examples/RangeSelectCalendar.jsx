@@ -62,9 +62,10 @@ class RangeSelectCalendar extends Component {
   render() {
     const { monthMoments, startDay, endDay, hoverDay, selecting } = this.state;
 
-    const { startDay: hoverStartDay, endDay: hoverEndDay } = startDay
-      ? getStartAndEndDay(startDay, hoverDay)
-      : { startDay, endDay };
+    const { startDay: hoverStartDay, endDay: hoverEndDay } =
+      selecting === SELECTING_STATE.END
+        ? getStartAndEndDay(startDay, hoverDay)
+        : { startDay, endDay };
 
     const modifiers = [
       sameDayModifier("selected start", hoverStartDay),
