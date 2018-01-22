@@ -1,6 +1,6 @@
 {
   "name": "react-barebones-calendar",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "private": false,
   "author": "George Vaughan <georgevaughandev@gmail.com>",
   "license": "MIT",
@@ -45,6 +45,6 @@
     "build-css": "node-sass-chokidar --include-path src/ src/ -o src/",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "deploy": "npm run build&&gh-pages -d build"
+    "deploy": "npm run build && gh-pages -d build"
   }
 }
