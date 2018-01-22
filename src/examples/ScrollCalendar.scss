@@ -1,6 +1,33 @@
 .calendar.scroll {
-  .calendar-month-grid {
-    height: 320px;
+  position: relative;
+  padding-top: 30px;
+
+  .calendar-weekday-header-row {
+    position: absolute;
+    left: 16px;
+    top: 0px;
+  }
+
+  .scroll-box {
     overflow-y: scroll;
+    height: 380px;
+  }
+
+  .calendar-month-grid {
+    position: relative;
+  }
+
+  .calendar-month {
+    padding-top: 35px;
+  }
+
+  .calendar-month-title {
+    background: white;
+    margin: 0px;
+    padding-top: 6px;
+    z-index: 2;
+    position: absolute;
+    left: 16px;
+    right: 16px;
   }
 }

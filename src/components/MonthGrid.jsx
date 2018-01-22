@@ -12,6 +12,7 @@ const MonthGrid = ({
   monthMoments,
   monthProps,
   monthTitleProps,
+  weekHeaderProps,
   weekProps,
   dayProps,
   ...props
@@ -23,6 +24,7 @@ const MonthGrid = ({
         monthMoment={monthMoment}
         {...monthProps}
         monthTitleProps={monthTitleProps}
+        weekHeaderProps={weekHeaderProps}
         weekProps={weekProps}
         dayProps={dayProps}
       />
