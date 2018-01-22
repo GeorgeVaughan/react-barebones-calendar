@@ -79,7 +79,6 @@ class RangeSelectCalendar extends Component {
       modifiers.push(
         inRangeModifier("in-range-hover", hoverStartDay, hoverEndDay, true)
       );
-      modifiers.push(sameDayModifier("end", hoverEndDay));
     }
 
     return (
