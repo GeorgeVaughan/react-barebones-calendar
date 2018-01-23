@@ -35,14 +35,13 @@ class ScrollCalendar extends Component {
     Object.keys(this.monthTitlesRefs)
       .map(key => this.monthTitlesRefs[key])
       .forEach(ref => {
-        let posY = ref.parentNode.offsetTop;
-        posY = Math.max(posY, scrollY);
-        posY = Math.min(
-          posY,
-          ref.parentNode.offsetTop + ref.parentNode.offsetHeight - 30
-        );
+        const minY = 0;
+        const maxY = ref.parentNode.offsetHeight - 30;
 
-        ref.style = `top:${posY}px`;
+        let posY = scrollY - ref.parentNode.offsetTop;
+        posY = Math.min(Math.max(posY, minY), maxY);
+
+        ref.style = `transform: translateY(${posY}px)`;
       });
   };
 

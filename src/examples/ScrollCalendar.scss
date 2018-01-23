@@ -18,16 +18,12 @@
   }
 
   .calendar-month {
-    padding-top: 35px;
+    padding-top: 0px;
   }
 
   .calendar-month-title {
-    background: white;
-    margin: 0px;
-    padding-top: 6px;
     z-index: 2;
-    position: absolute;
-    left: 16px;
-    right: 16px;
+    background: white;
+    position: relative;
   }
 }
