@@ -11,8 +11,6 @@ import {
   weekendModifier
 } from "components/utils/Modifiers";
 
-import "./DropdownCalendar.css";
-
 class DropdownCalendar extends Component {
   constructor(props) {
     super(props);

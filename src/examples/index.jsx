@@ -4,6 +4,7 @@ import BasicCalendar from "examples/BasicCalendar";
 import RangeSelectCalendar from "examples/RangeSelectCalendar";
 import DropdownCalendar from "examples/DropdownCalendar";
 import ButtonNavigationCalendar from "examples/ButtonNavigationCalendar";
+import CombinedCalendar from "examples/CombinedCalendar";
 import ScrollCalendar from "examples/ScrollCalendar";
 import LargeCalendar from "examples/LargeCalendar";
 
@@ -34,6 +35,12 @@ const EXAMPLES = [
     component: ButtonNavigationCalendar,
     description:
       "This component shows one of the simpler ways to create a navigational calender, with two buttons to slide backwards and forwards by a month."
+  },
+  {
+    title: "Combined Calendar",
+    component: CombinedCalendar,
+    description:
+      "This component is a more real world like solution, with a combination of range select, dropdown, and navigation functionality."
   },
   {
     title: "Scroll Calendar",

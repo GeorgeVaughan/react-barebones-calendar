@@ -42,6 +42,9 @@
     @include calendar-day-empty();
     @include calendar-day-invalid();
   }
+  .calendar-week {
+    min-width: $day-width*7;
+  }
   .calendar-weekday-header {
     display: inline-block;
     width: $day-width;
