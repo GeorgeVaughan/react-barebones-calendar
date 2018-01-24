@@ -19,29 +19,34 @@ class ButtonNavigationCalendar extends Component {
       selectedDay: moment()
     };
   }
+
+  navigate = change => {
+    const { startMonth } = this.state;
+    this.setState({
+      startMonth: startMonth.clone().add(change, "month")
+    });
+  };
+
   render() {
     const { startMonth, selectedDay } = this.state;
     return (
       <div>
-        <button
-          onClick={() =>
-            this.setState({
-              startMonth: startMonth.clone().subtract(1, "month")
-            })}
-        >
-          {"<"}
-        </button>
-        <button
-          onClick={() =>
-            this.setState({
-              startMonth: startMonth.clone().add(1, "month")
-            })}
-        >
-          {">"}
-        </button>
         <Calendar
           monthGridProps={{
             monthMoments: getMonthsFrom(startMonth, 1)
+          }}
+          monthTitleProps={{
+            renderOverride: ({ defaultRender, ...props }) => (
+              <div className="calendar-button-nav">
+                <button className="left" onClick={() => this.navigate(-1)}>
+                  {"<"}
+                </button>
+                {React.createElement(defaultRender, props)}
+                <button className="right" onClick={() => this.navigate(1)}>
+                  {">"}
+                </button>
+              </div>
+            )
           }}
           dayProps={{
             modifiers: [
