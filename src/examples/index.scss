@@ -8,11 +8,12 @@
   box-shadow: 0px 0px 1px #888888;
 
   h1 {
-    margin: 24px;
+    margin: 0px;
+    margin-left: 24px;
   }
 
   .example {
-    margin: 24px;
+    padding: 24px;
 
     .component {
       display: inline-block;
@@ -23,7 +24,7 @@
     }
 
     .description {
-      margin-top: 12px;
+      margin-top: 18px;
     }
   }
 }
