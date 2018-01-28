@@ -10,7 +10,7 @@ import {
   weekendModifier
 } from "components/utils/Modifiers";
 
-class ButtonNavigationCalendar extends Component {
+class NavigationCalendar extends Component {
   constructor(props) {
     super(props);
 
@@ -29,6 +29,14 @@ class ButtonNavigationCalendar extends Component {
 
   render() {
     const { startMonth, selectedDay } = this.state;
+
+    const modifiers = [
+      todayModifier,
+      selectedModifier(selectedDay),
+      emptyModifier,
+      weekendModifier
+    ];
+
     return (
       <div>
         <Calendar
@@ -49,12 +57,7 @@ class ButtonNavigationCalendar extends Component {
             )
           }}
           dayProps={{
-            modifiers: [
-              todayModifier,
-              selectedModifier(selectedDay),
-              emptyModifier,
-              weekendModifier
-            ],
+            modifiers,
             onClick: (_, { dayMoment }) =>
               this.setState({ selectedDay: dayMoment })
           }}
@@ -64,4 +67,4 @@ class ButtonNavigationCalendar extends Component {
   }
 }
 
-export default ButtonNavigationCalendar;
+export default NavigationCalendar;

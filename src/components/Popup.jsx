@@ -1,7 +1,5 @@
 import React from "react";
 
-import "./Popup.css";
-
 class Popup extends React.Component {
   constructor(props) {
     super(props);

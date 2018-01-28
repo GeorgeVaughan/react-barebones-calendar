@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import moment from "moment";
 
 import Calendar from "components/Calendar";
+import Popup from "components/Popup";
 import { getMonthsFrom } from "components/utils/MomentHelpers";
 import {
   todayModifier,
@@ -9,8 +10,6 @@ import {
   isBeforeModifier
 } from "components/utils/Modifiers";
 import { combineClasses } from "components/utils/PropHelpers";
-
-import Popup from "./utils/Popup";
 
 import "styles/largeStyle.css";
 
@@ -23,22 +22,27 @@ class LargeCalendarDay extends Component {
       nextEvent: ""
     };
   }
+
   addNextEvent = () => {
     const { events, nextEvent } = this.state;
     if (nextEvent === "") return;
     this.setState({ nextEvent: "", events: [...events, nextEvent] });
   };
+
   updateNextEvent = e => {
     const nextEvent = e.target.value;
     this.setState({ nextEvent });
   };
+
   deleteEvent = i => {
     const { events } = this.state;
     this.setState({ events: [...events.slice(0, i), ...events.slice(i + 1)] });
   };
+
   render() {
     const { className, dayMoment, ...props } = this.props;
     const { events, open } = this.state;
+
     return (
       <div className={combineClasses(className, open && "selected")} {...props}>
         <Popup
@@ -99,6 +103,13 @@ class LargeCalendar extends Component {
   }
   render() {
     const { monthMoments } = this.state;
+
+    const modifiers = [
+      todayModifier,
+      emptyModifier,
+      isBeforeModifier("invalid", this.today)
+    ];
+
     return (
       <Calendar
         className="calendar-large"
@@ -106,11 +117,7 @@ class LargeCalendar extends Component {
           monthMoments
         }}
         dayProps={{
-          modifiers: [
-            todayModifier,
-            emptyModifier,
-            isBeforeModifier("invalid", this.today)
-          ],
+          modifiers,
           renderOverride: props => <LargeCalendarDay {...props} />
         }}
       />

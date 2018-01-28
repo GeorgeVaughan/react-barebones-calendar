@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import moment from "moment";
 
 import Calendar from "components/Calendar";
-import Popup from "./utils/Popup";
+import Popup from "components/Popup";
 import {
   getMonthsFrom,
   getStartAndEndDay

@@ -26,3 +26,12 @@ $day-in-range-color: rgba($highlight-color, 0.25);
     $day-in-range-color
   );
 }
+.popup {
+  position: relative;
+  > :not(:first-child) {
+    position: absolute;
+    box-shadow: 1px 1px 5px #888888;
+    z-index: 3;
+    background: white;
+  }
+}

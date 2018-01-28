@@ -3,7 +3,7 @@ import React from "react";
 import BasicCalendar from "examples/BasicCalendar";
 import RangeSelectCalendar from "examples/RangeSelectCalendar";
 import DropdownCalendar from "examples/DropdownCalendar";
-import ButtonNavigationCalendar from "examples/ButtonNavigationCalendar";
+import NavigationCalendar from "examples/NavigationCalendar";
 import CombinedCalendar from "examples/CombinedCalendar";
 import ScrollCalendar from "examples/ScrollCalendar";
 import LargeCalendar from "examples/LargeCalendar";
@@ -31,8 +31,8 @@ const EXAMPLES = [
       "This component shows how the component could be used in conjunction with an <input/> element."
   },
   {
-    title: "Button Navigation Calendar",
-    component: ButtonNavigationCalendar,
+    title: "Navigation Calendar",
+    component: NavigationCalendar,
     description:
       "This component shows one of the simpler ways to create a navigational calender, with two buttons to slide backwards and forwards by a month."
   },

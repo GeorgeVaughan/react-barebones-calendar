@@ -19,20 +19,24 @@ class BasicCalendar extends Component {
       selectedDay: moment()
     };
   }
+
   render() {
     const { monthMoments, selectedDay } = this.state;
+
+    const modifiers = [
+      todayModifier,
+      selectedModifier(selectedDay),
+      emptyModifier,
+      weekendModifier
+    ];
+
     return (
       <Calendar
         monthGridProps={{
           monthMoments
         }}
         dayProps={{
-          modifiers: [
-            todayModifier,
-            selectedModifier(selectedDay),
-            emptyModifier,
-            weekendModifier
-          ],
+          modifiers,
           onClick: (_, { dayMoment }) =>
             this.setState({ selectedDay: dayMoment })
         }}
