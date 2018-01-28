@@ -1,28 +1,28 @@
 import React from "react";
 
-import BasicCalendar from "examples/BasicCalendar";
-import RangeSelectCalendar from "examples/RangeSelectCalendar";
-import DropdownCalendar from "examples/DropdownCalendar";
-import NavigationCalendar from "examples/NavigationCalendar";
-import CombinedCalendar from "examples/CombinedCalendar";
-import ScrollCalendar from "examples/ScrollCalendar";
-import LargeCalendar from "examples/LargeCalendar";
+import BasicCalendar from "templates/BasicCalendar";
+import RangeSelectCalendar from "templates/RangeSelectCalendar";
+import DropdownCalendar from "templates/DropdownCalendar";
+import NavigationCalendar from "templates/NavigationCalendar";
+import CombinedCalendar from "templates/CombinedCalendar";
+import ScrollCalendar from "templates/ScrollCalendar";
+import LargeCalendar from "templates/LargeCalendar";
 
 import "styles/defaultStyle.css";
 import "./index.css";
 
-const EXAMPLES = [
+const TEMPLATES = [
   {
     title: "Basic Calendar",
     component: BasicCalendar,
     description:
-      "This is a very basic calendar, simply displaying a month with weekends blocked off, and the option to select a certain day. The other examples shown here are based upon this example."
+      "This is a very basic calendar, simply displaying a month with weekends blocked off, and the option to select a certain day."
   },
   {
     title: "Range Select Calendar",
     component: RangeSelectCalendar,
     description:
-      "This component allows a selection of a range of days, and shows the use of the 'modifiers' prop."
+      "This component allows a selection of a range of days, and uses more of the 'modifiers' prop."
   },
   {
     title: "Dropdown Calendar",
@@ -56,10 +56,10 @@ const EXAMPLES = [
 ];
 
 export default () => (
-  <div className="examples">
-    <h1>Examples</h1>
-    {EXAMPLES.map(({ title, component, description, code }) => (
-      <div key={title} className="example">
+  <div className="templates">
+    <h1>Templates</h1>
+    {TEMPLATES.map(({ title, component, description, code }) => (
+      <div key={title} className="template">
         <h2>{title}</h2>
         <div className="component">{React.createElement(component)}</div>
         <div className="description">{description}</div>
