@@ -40,7 +40,7 @@ class LargeCalendarDay extends Component {
   };
 
   render() {
-    const { className, dayMoment, ...props } = this.props;
+    const { className, dayMoment, defaultRender, ...props } = this.props;
     const { events, open } = this.state;
 
     return (

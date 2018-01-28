@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import moment from "moment";
 
 import Calendar from "components/Calendar";
+import MonthTitleNav from "components/MonthTitleNav";
 import Popup from "components/Popup";
 import {
   getMonthsFrom,
@@ -91,19 +92,15 @@ class ButtonNavigationCalendar extends Component {
       );
     }
 
+    const inputValue = startDay
+      ? startDay.format("DD/MM/YY") +
+        (endDay ? " - " + endDay.format("DD/MM/YY") : "")
+      : "";
+
     return (
       <div>
         <Popup
-          button={
-            <input
-              value={
-                startDay &&
-                startDay.format("DD/MM/YY") +
-                  (endDay ? " - " + endDay.format("DD/MM/YY") : "")
-              }
-              readOnly
-            />
-          }
+          button={<input value={inputValue} readOnly />}
           renderContent={() => (
             <Calendar
               className="dropdown calendar-range"
@@ -112,15 +109,7 @@ class ButtonNavigationCalendar extends Component {
               }}
               monthTitleProps={{
                 renderOverride: ({ defaultRender, ...props }) => (
-                  <div className="calendar-button-nav">
-                    <button className="left" onClick={() => this.navigate(-1)}>
-                      {"<"}
-                    </button>
-                    {React.createElement(defaultRender, props)}
-                    <button className="right" onClick={() => this.navigate(1)}>
-                      {">"}
-                    </button>
-                  </div>
+                  <MonthTitleNav navigate={this.navigate} {...props} />
                 )
               }}
               dayProps={{

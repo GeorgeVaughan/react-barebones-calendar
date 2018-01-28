@@ -74,7 +74,11 @@ class ScrollCalendar extends Component {
                     this.setState({ selectedDay: dayMoment })
                 }}
                 monthTitleProps={{
-                  renderOverride: ({ monthMoment, ...props }) => (
+                  renderOverride: ({
+                    monthMoment,
+                    defaultRender,
+                    ...props
+                  }) => (
                     <div
                       ref={ref =>
                         (this.monthTitlesRefs[

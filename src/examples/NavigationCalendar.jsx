@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import moment from "moment";
 
 import Calendar from "components/Calendar";
+import MonthTitleNav from "components/MonthTitleNav";
 import { getMonthsFrom } from "components/utils/MomentHelpers";
 import {
   todayModifier,
@@ -22,6 +23,7 @@ class NavigationCalendar extends Component {
 
   navigate = change => {
     const { startMonth } = this.state;
+
     this.setState({
       startMonth: startMonth.clone().add(change, "month")
     });
@@ -45,15 +47,7 @@ class NavigationCalendar extends Component {
           }}
           monthTitleProps={{
             renderOverride: ({ defaultRender, ...props }) => (
-              <div className="calendar-button-nav">
-                <button className="left" onClick={() => this.navigate(-1)}>
-                  {"<"}
-                </button>
-                {React.createElement(defaultRender, props)}
-                <button className="right" onClick={() => this.navigate(1)}>
-                  {">"}
-                </button>
-              </div>
+              <MonthTitleNav navigate={this.navigate} {...props} />
             )
           }}
           dayProps={{
