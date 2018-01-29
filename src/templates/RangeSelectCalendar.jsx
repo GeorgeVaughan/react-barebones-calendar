@@ -14,8 +14,6 @@ import {
   weekendModifier
 } from "components/utils/Modifiers";
 
-import "./RangeSelectCalendar.css";
-
 const SELECTING_STATE = {
   START: "SELECTING_STATE.START",
   END: "SELECTING_STATE.END"
@@ -83,7 +81,6 @@ class RangeSelectCalendar extends Component {
 
     return (
       <Calendar
-        className="calendar-range"
         monthGridProps={{
           monthMoments
         }}

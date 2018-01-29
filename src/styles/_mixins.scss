@@ -60,6 +60,7 @@
     border-color: #888888;
   }
   .calendar-month-grid {
+    display: flex;
   }
   .calendar-month {
     padding: $month-padding;

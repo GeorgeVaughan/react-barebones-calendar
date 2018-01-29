@@ -102,7 +102,7 @@ class ButtonNavigationCalendar extends Component {
           button={<input value={inputValue} readOnly />}
           renderContent={() => (
             <Calendar
-              className="dropdown calendar-range"
+              className="dropdown"
               navButtonProps={{
                 navigate: this.navigate
               }}
