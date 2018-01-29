@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import moment from "moment";
 
 import Calendar from "components/Calendar";
 import {
   getMonthsFrom,
-  getStartAndEndDay
+  getStartAndEndDay,
+  getToday
 } from "components/utils/MomentHelpers";
 import {
   todayModifier,
@@ -24,7 +24,7 @@ class RangeSelectCalendar extends Component {
     super(props);
 
     this.state = {
-      monthMoments: getMonthsFrom(moment(), 2),
+      monthMoments: getMonthsFrom(getToday(), 2),
       startDay: null,
       endDay: null,
       hoverDay: null,

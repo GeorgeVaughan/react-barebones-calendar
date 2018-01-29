@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-import moment from "moment";
 
 import Calendar from "components/Calendar";
-import { getMonthsFrom } from "components/utils/MomentHelpers";
+import { getMonthsFrom, getToday } from "components/utils/MomentHelpers";
 import {
   todayModifier,
   selectedModifier,
@@ -15,8 +14,8 @@ class NavigationCalendar extends Component {
     super(props);
 
     this.state = {
-      startMonth: moment(),
-      selectedDay: moment()
+      startMonth: getToday(),
+      selectedDay: null
     };
   }
 

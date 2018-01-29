@@ -1,9 +1,8 @@
 import React, { Component } from "react";
-import moment from "moment";
 
 import Popup from "components/Popup";
 import Calendar from "components/Calendar";
-import { getMonthsFrom } from "components/utils/MomentHelpers";
+import { getMonthsFrom, getToday } from "components/utils/MomentHelpers";
 import {
   todayModifier,
   selectedModifier,
@@ -16,8 +15,8 @@ class DropdownCalendar extends Component {
     super(props);
 
     this.state = {
-      monthMoments: getMonthsFrom(moment(), 1),
-      selectedDay: moment()
+      monthMoments: getMonthsFrom(getToday(), 1),
+      selectedDay: null
     };
   }
 
@@ -33,7 +32,12 @@ class DropdownCalendar extends Component {
 
     return (
       <Popup
-        button={<input value={selectedDay.format("DD / MM / YY")} readOnly />}
+        button={
+          <input
+            value={selectedDay && selectedDay.format("DD / MM / YY")}
+            readOnly
+          />
+        }
         renderContent={() => (
           <Calendar
             className="dropdown"

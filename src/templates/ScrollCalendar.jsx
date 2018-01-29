@@ -1,10 +1,9 @@
 import React, { Component } from "react";
-import moment from "moment";
 
 import Calendar from "components/Calendar";
 import MonthGrid from "components/MonthGrid";
 import WeekHeader from "components/WeekHeader";
-import { getMonthsFrom } from "components/utils/MomentHelpers";
+import { getMonthsFrom, getToday } from "components/utils/MomentHelpers";
 import {
   todayModifier,
   selectedModifier,
@@ -21,8 +20,8 @@ class ScrollCalendar extends Component {
     this.monthTitlesRefs = {};
 
     this.state = {
-      monthMoments: getMonthsFrom(moment(), 12),
-      selectedDay: moment()
+      monthMoments: getMonthsFrom(getToday(), 12),
+      selectedDay: null
     };
   }
 
@@ -31,7 +30,9 @@ class ScrollCalendar extends Component {
   }
 
   onScroll = () => {
-    const scrollY = this.monthGridRef.scrollTop;
+    const scrollY = this.scrollBoxRef.scrollTop;
+
+    // Position month headers
     Object.keys(this.monthTitlesRefs)
       .map(key => this.monthTitlesRefs[key])
       .forEach(ref => {
@@ -62,7 +63,7 @@ class ScrollCalendar extends Component {
           <div className={className}>
             <WeekHeader />
             <div
-              ref={ref => (this.monthGridRef = ref)}
+              ref={ref => (this.scrollBoxRef = ref)}
               className="scroll-box"
               onScroll={this.onScroll}
             >

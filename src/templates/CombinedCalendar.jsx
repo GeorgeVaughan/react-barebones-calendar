@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import moment from "moment";
 
 import Calendar from "components/Calendar";
 import Popup from "components/Popup";
 import {
   getMonthsFrom,
-  getStartAndEndDay
+  getStartAndEndDay,
+  getToday
 } from "components/utils/MomentHelpers";
 import {
   todayModifier,
@@ -25,8 +25,8 @@ class ButtonNavigationCalendar extends Component {
     super(props);
 
     this.state = {
-      startMonth: moment(),
-      monthMoments: getMonthsFrom(moment(), 2),
+      startMonth: getToday(),
+      monthMoments: getMonthsFrom(getToday(), 2),
       startDay: null,
       endDay: null,
       hoverDay: null,
