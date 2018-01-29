@@ -42,9 +42,8 @@ export const getMonthsFrom = (startMonthMoment, numberOfMonths) => {
   const s = startMonthMoment.clone();
 
   const months = [];
-  while (s.diff(startMonthMoment, "month") < numberOfMonths) {
-    months.push(s.clone());
-    s.add(1, "month");
+  for (let i = 0; i < numberOfMonths; i++) {
+    months.push(s.clone().add(i, "month"));
   }
   return months;
 };
