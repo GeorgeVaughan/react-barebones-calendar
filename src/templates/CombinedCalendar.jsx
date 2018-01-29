@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import moment from "moment";
 
 import Calendar from "components/Calendar";
-import MonthTitleNav from "components/MonthTitleNav";
 import Popup from "components/Popup";
 import {
   getMonthsFrom,
@@ -104,13 +103,11 @@ class ButtonNavigationCalendar extends Component {
           renderContent={() => (
             <Calendar
               className="dropdown calendar-range"
+              navButtonProps={{
+                navigate: this.navigate
+              }}
               monthGridProps={{
                 monthMoments
-              }}
-              monthTitleProps={{
-                renderOverride: ({ defaultRender, ...props }) => (
-                  <MonthTitleNav navigate={this.navigate} {...props} />
-                )
               }}
               dayProps={{
                 modifiers,

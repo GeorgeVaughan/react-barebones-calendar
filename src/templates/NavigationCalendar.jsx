@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import moment from "moment";
 
 import Calendar from "components/Calendar";
-import MonthTitleNav from "components/MonthTitleNav";
 import { getMonthsFrom } from "components/utils/MomentHelpers";
 import {
   todayModifier,
@@ -42,13 +41,11 @@ class NavigationCalendar extends Component {
     return (
       <div>
         <Calendar
+          navButtonProps={{
+            navigate: this.navigate
+          }}
           monthGridProps={{
             monthMoments: getMonthsFrom(startMonth, 1)
-          }}
-          monthTitleProps={{
-            renderOverride: ({ defaultRender, ...props }) => (
-              <MonthTitleNav navigate={this.navigate} {...props} />
-            )
           }}
           dayProps={{
             modifiers,

@@ -17,6 +17,8 @@
   $day-selected-color,
   $day-in-range-color
 ) {
+  $month-padding: 16px;
+  position: relative;
   @include font-size($day-font-size);
   text-align: center;
   * :focus {
@@ -60,7 +62,7 @@
   .calendar-month-grid {
   }
   .calendar-month {
-    padding: 16px;
+    padding: $month-padding;
   }
   .calendar-month-title {
     padding-top: 6px;
@@ -68,24 +70,27 @@
     font-weight: bold;
     @include font-size(l);
   }
-  .calendar-button-nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    > button {
-      cursor: pointer;
-      border-radius: 100%;
-      border-color: rgba(black, 0.2);
-      &:hover {
-        border-color: rgba(black, 0.4);
-      }
-      color: rgba(black, 0.8);
-      border-width: 1px;
-      background: none;
-      @include font-size(l);
-      font-weight: bold;
-      width: 27px;
-      height: 27px;
+  .calendar-nav-button {
+    position: absolute;
+    cursor: pointer;
+    width: 35px;
+    height: 35px;
+    @include font-size(l);
+    font-weight: bold;
+    color: rgba(black, 0.8);
+    background: none;
+    border-radius: 100%;
+    border-width: 1px;
+    border-color: rgba(black, 0.2);
+    &:hover {
+      border-color: rgba(black, 0.4);
+    }
+    top: $month-padding;
+    &.left {
+      left: $month-padding;
+    }
+    &.right {
+      right: $month-padding;
     }
   }
 }
