@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 
-import Popup from "components/Popup";
 import Calendar from "components/Calendar";
 import { getMonthsFrom, getToday } from "components/utils/MomentHelpers";
 import {
@@ -10,7 +9,7 @@ import {
   weekendModifier
 } from "components/utils/Modifiers";
 
-class DropdownCalendar extends Component {
+class BasicCalendar extends Component {
   constructor(props) {
     super(props);
 
@@ -22,7 +21,7 @@ class DropdownCalendar extends Component {
 
   render() {
     const { monthMoments, selectedDay } = this.state;
-
+    console.log(selectedDay && selectedDay.format("Do"));
     const modifiers = [
       todayModifier,
       selectedModifier(selectedDay),
@@ -31,29 +30,18 @@ class DropdownCalendar extends Component {
     ];
 
     return (
-      <Popup
-        button={
-          <input
-            value={selectedDay && selectedDay.format("DD / MM / YY")}
-            readOnly
-          />
-        }
-        renderContent={() => (
-          <Calendar
-            className="dropdown"
-            monthGridProps={{
-              monthMoments
-            }}
-            dayProps={{
-              modifiers,
-              onClick: (_, { dayMoment }) =>
-                this.setState({ selectedDay: dayMoment })
-            }}
-          />
-        )}
+      <Calendar
+        monthGridProps={{
+          monthMoments
+        }}
+        dayProps={{
+          modifiers,
+          onClick: (_, { dayMoment }) =>
+            this.setState({ selectedDay: dayMoment })
+        }}
       />
     );
   }
 }
 
-export default DropdownCalendar;
+export default BasicCalendar;

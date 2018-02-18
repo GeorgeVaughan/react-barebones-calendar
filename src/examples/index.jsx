@@ -1,12 +1,12 @@
 import React from "react";
 
-import BasicCalendar from "templates/BasicCalendar";
-import RangeSelectCalendar from "templates/RangeSelectCalendar";
-import DropdownCalendar from "templates/DropdownCalendar";
-import NavigationCalendar from "templates/NavigationCalendar";
-import CombinedCalendar from "templates/CombinedCalendar";
-import ScrollCalendar from "templates/ScrollCalendar";
-import LargeCalendar from "templates/LargeCalendar";
+import BasicCalendar from "./BasicCalendar";
+import RangeSelectCalendar from "./RangeSelectCalendar";
+import DropdownCalendar from "./DropdownCalendar";
+import NavigationCalendar from "./NavigationCalendar";
+import CombinedCalendar from "./CombinedCalendar";
+import ScrollCalendar from "./ScrollCalendar";
+import LargeCalendar from "./LargeCalendar";
 
 import "styles/defaultStyle.css";
 import "./index.css";

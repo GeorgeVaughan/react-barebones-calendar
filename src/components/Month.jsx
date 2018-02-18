@@ -15,6 +15,7 @@ class Month extends Component {
       weeks: getDaysInMonth2D(props.monthMoment, props.firstDayOfTheWeek)
     };
   }
+
   componentWillReceiveProps(nextProps) {
     if (!isSameMonth(this.props.monthMoment, nextProps.monthMoment)) {
       this.setState({
@@ -25,6 +26,7 @@ class Month extends Component {
       });
     }
   }
+
   render() {
     const {
       monthMoment,

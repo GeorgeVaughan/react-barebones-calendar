@@ -21,7 +21,14 @@ export const getDaysInMonth2D = (moment, firstDayOfTheWeek = 0) => {
 
   let currentDay;
   let currentTableRowI = 0;
-  const table = [new Array(Math.max(startDayWeekIndex - 1, 0)).fill(null)];
+  const table = [];
+
+  let nElementsToPrepend = Math.max(startDayWeekIndex - 1, 0);
+  table[currentTableRowI] = [];
+  while (nElementsToPrepend) {
+    table[currentTableRowI].push(null);
+    nElementsToPrepend--;
+  }
   while (daysInMonth.length) {
     if (table[currentTableRowI].length >= 7) {
       currentTableRowI++;

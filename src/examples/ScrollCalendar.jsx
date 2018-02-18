@@ -20,7 +20,7 @@ class ScrollCalendar extends Component {
     this.monthTitlesRefs = {};
 
     this.state = {
-      monthMoments: getMonthsFrom(getToday(), 12),
+      monthMoments: getMonthsFrom(getToday(), 6),
       selectedDay: null
     };
   }
@@ -31,6 +31,12 @@ class ScrollCalendar extends Component {
 
   onScroll = () => {
     const scrollY = this.scrollBoxRef.scrollTop;
+    const maxScrollY =
+      this.scrollBoxRef.scrollHeight - this.scrollBoxRef.offsetHeight;
+
+    Object.keys(this.monthTitlesRefs).forEach(key => {
+      if (this.monthTitlesRefs[key] === null) delete this.monthTitlesRefs[key];
+    });
 
     // Position month headers
     Object.keys(this.monthTitlesRefs)
@@ -44,7 +50,41 @@ class ScrollCalendar extends Component {
 
         ref.style = `transform: translateY(${posY}px)`;
       });
+
+    // Load more months
+
+    const { monthMoments } = this.state;
+    if (maxScrollY - scrollY < 20) {
+      const newMonth = monthMoments[0]
+        .clone()
+        .add(monthMoments.length, "month");
+      this.setState({
+        monthMoments: [...this.state.monthMoments.slice(1), newMonth]
+      });
+      const deletedMonthHeight = this.monthTitlesRefs[
+        monthMoments[0].format("MMYYYY")
+      ].parentNode.offsetHeight;
+      this.scrollBoxRef.scrollTop -= deletedMonthHeight;
+    }
+    if (scrollY < 20) {
+      const newMonth = monthMoments[0].clone().add(-1, "month");
+      this.setState({
+        monthMoments: [newMonth, ...this.state.monthMoments.slice(0, -1)]
+      });
+      this.addedTopMonth = true;
+    }
   };
+
+  componentDidUpdate() {
+    const { monthMoments } = this.state;
+    if (this.addedTopMonth) {
+      this.addedTopMonth = false;
+      const newMonthHeight = this.monthTitlesRefs[
+        monthMoments[0].format("MMYYYY")
+      ].parentNode.offsetHeight;
+      this.scrollBoxRef.scrollTop += newMonthHeight;
+    }
+  }
 
   render() {
     const { monthMoments, selectedDay } = this.state;

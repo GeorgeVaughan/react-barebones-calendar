@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Templates from "templates";
+import Examples from "examples";
 
 import "./Demo.css";
 
@@ -7,7 +7,7 @@ class Demo extends Component {
   render() {
     return (
       <div className="demo">
-        <Templates />
+        <Examples />
       </div>
     );
   }
