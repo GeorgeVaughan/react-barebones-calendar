@@ -31,6 +31,7 @@
   @include calendar-month-grid();
   @include calendar-month($month-padding);
   @include calendar-month-title();
+  @include calendar-nav-button($month-padding);
 }
 @mixin calendar-day(
   $day-width,
