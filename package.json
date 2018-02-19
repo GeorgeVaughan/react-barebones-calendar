@@ -1,6 +1,6 @@
 {
   "name": "react-barebones-calendar",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "private": false,
   "author": "George Vaughan <georgevaughandev@gmail.com>",
   "license": "MIT",
@@ -10,15 +10,8 @@
     "url": "https://github.com/GeorgeVaughan/react-barebones-calendar"
   },
   "homepage": "https://GeorgeVaughan.github.io/react-barebones-calendar",
-  "files": [
-    "lib/"
-  ],
-  "keywords": [
-    "react-component",
-    "react",
-    "calendar",
-    "custom"
-  ],
+  "files": ["lib/"],
+  "keywords": ["react-component", "react", "calendar", "custom"],
   "dependencies": {
     "moment": "^2.19.2",
     "react": "^16.1.1",
@@ -41,11 +34,13 @@
     "rimraf": "^2.6.2"
   },
   "scripts": {
-    "build-lib": "npm run clean-lib && babel src --out-dir lib && node-sass-chokidar --include-path src/ src/ -o lib && copyfiles --flat src/styles/*.scss lib/styles",
+    "build-lib":
+      "npm run clean-lib && babel src --out-dir lib && node-sass-chokidar --include-path src/ src/ -o lib && copyfiles --flat src/styles/*.scss lib/styles",
     "clean-lib": "rimraf lib",
     "start": "npm-run-all -p start-js start-css",
     "start-js": "react-scripts start",
-    "start-css": "npm run build-css && node-sass-chokidar --include-path src/ src/ -o src/ --watch",
+    "start-css":
+      "npm run build-css && node-sass-chokidar --include-path src/ src/ -o src/ --watch",
     "build": "npm-run-all build-js build-css",
     "build-js": "react-scripts build",
     "build-css": "node-sass-chokidar --include-path src/ src/ -o src/",
