@@ -15,15 +15,33 @@
   $day-border-radius,
   $day-hover-color,
   $day-selected-color,
-  $day-in-range-color
+  $day-in-range-color,
+  $month-padding: 16px
 ) {
-  $month-padding: 16px;
   position: relative;
   @include font-size($day-font-size);
   text-align: center;
   * :focus {
     outline: none;
   }
+  @include calendar-day($day-width, $day-height, $day-inner-width, $day-inner-height, $day-border-radius, $day-hover-color, $day-selected-color, $day-in-range-color, $month-padding);
+  @include calendar-week($day-width);
+  @include calendar-weekday-header($day-width);
+  @include calendar-weekday-header-row();
+  @include calendar-month-grid();
+  @include calendar-month($month-padding);
+  @include calendar-month-title();
+}
+@mixin calendar-day(
+  $day-width,
+  $day-height,
+  $day-inner-width,
+  $day-inner-height,
+  $day-border-radius,
+  $day-hover-color,
+  $day-selected-color,
+  $day-in-range-color,
+  $month-padding) {
   .calendar-day {
     display: inline-block;
     width: $day-width;
@@ -43,56 +61,7 @@
     @include calendar-day-selected($day-selected-color);
     @include calendar-day-empty();
     @include calendar-day-invalid();
-  }
-  .calendar-week {
-    min-width: $day-width*7;
-  }
-  .calendar-weekday-header {
-    display: inline-block;
-    width: $day-width;
-    @include font-size(s);
-  }
-  .calendar-weekday-header-row {
-    padding: 2px 0px;
-    margin: 6px 0px;
-    border-bottom-style: solid;
-    border-width: 1px;
-    border-color: #888888;
-  }
-  .calendar-month-grid {
-    display: flex;
-  }
-  .calendar-month {
-    padding: $month-padding;
-  }
-  .calendar-month-title {
-    padding-top: 6px;
-    padding-bottom: 6px;
-    font-weight: bold;
-    @include font-size(l);
-  }
-  .calendar-nav-button {
-    position: absolute;
-    cursor: pointer;
-    width: 35px;
-    height: 35px;
-    @include font-size(l);
-    font-weight: bold;
-    color: rgba(black, 0.8);
-    background: none;
-    border-radius: 100%;
-    border-width: 1px;
-    border-color: rgba(black, 0.2);
-    &:hover {
-      border-color: rgba(black, 0.4);
-    }
-    top: $month-padding;
-    &.left {
-      left: $month-padding;
-    }
-    &.right {
-      right: $month-padding;
-    }
+    @include calendar-nav-button($month-padding);
   }
 }
 @mixin calendar-day-today() {
@@ -116,7 +85,7 @@
   &.in-range,
   &.in-range-hover {
     position: relative;
-    $start-end-side-gap: (($day-width - $day-height) / 2);
+    $start-end-side-gap: calc((#{$day-width} - #{$day-height}) / 2);
     &:before {
       content: "";
       position: absolute;
@@ -153,5 +122,69 @@
   &.invalid {
     pointer-events: none;
     opacity: 0.3;
+  }
+}
+@mixin calendar-week($day-width) {
+  .calendar-week {
+    min-width: $day-width*7;
+  }
+}
+@mixin calendar-weekday-header($day-width) {
+  .calendar-weekday-header {
+    display: inline-block;
+    width: $day-width;
+    @include font-size(s);
+  }
+}
+@mixin calendar-weekday-header-row() {
+  .calendar-weekday-header-row {
+    padding: 2px 0px;
+    margin: 6px 0px;
+    border-bottom-style: solid;
+    border-width: 1px;
+    border-color: #888888;
+  }
+}
+@mixin calendar-month-grid() {
+  .calendar-month-grid {
+    display: flex;
+  }
+}
+@mixin calendar-month($month-padding) {
+  .calendar-month {
+    padding: $month-padding;
+  }
+}
+@mixin calendar-month-title() {
+  .calendar-month-title {
+    padding-top: 6px;
+    padding-bottom: 6px;
+    font-weight: bold;
+    @include font-size(l);
+  }
+}
+@mixin calendar-nav-button($month-padding) {
+  .calendar-nav-button {
+    position: absolute;
+    cursor: pointer;
+    width: 35px;
+    height: 35px;
+    @include font-size(l);
+    font-weight: bold;
+    color: rgba(black, 0.8);
+    background: none;
+    border-radius: 100%;
+    border-width: 1px;
+    border-color: rgba(black, 0.2);
+    &:hover {
+      border-color: rgba(black, 0.4);
+    }
+    top: $month-padding;
+    &.left {
+      left: $month-padding;
+    }
+    &.right {
+      right: $month-padding;
+    }
   }
 }
