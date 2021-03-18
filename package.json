@@ -4,7 +4,7 @@
   "private": false,
   "author": "George Vaughan <georgevaughandev@gmail.com>",
   "license": "MIT",
-  "main": "exports.js",
+  "main": "dist/exports.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/GeorgeVaughan/react-barebones-calendar"
