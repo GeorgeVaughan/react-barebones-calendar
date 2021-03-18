@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 import Calendar from "components/Calendar";
+import Popup from "components/Popup";
 import {
   getMonthsFrom,
   getStartAndEndDay,
@@ -19,11 +20,12 @@ const SELECTING_STATE = {
   END: "SELECTING_STATE.END"
 };
 
-class RangeSelectCalendar extends Component {
+class ButtonNavigationCalendar extends Component<any, any> {
   constructor(props) {
     super(props);
 
     this.state = {
+      startMonth: getToday(),
       monthMoments: getMonthsFrom(getToday(), 2),
       startDay: null,
       endDay: null,
@@ -32,7 +34,17 @@ class RangeSelectCalendar extends Component {
     };
   }
 
-  onDayClick = (e, { dayMoment }) => {
+  navigate = change => {
+    const { startMonth } = this.state;
+
+    const newStartMonth = startMonth.clone().add(change, "month");
+    this.setState({
+      startMonth: newStartMonth,
+      monthMoments: getMonthsFrom(newStartMonth, 2)
+    });
+  };
+
+  onDayClick = (_, { dayMoment }) => {
     const { selecting } = this.state;
     switch (selecting) {
       case SELECTING_STATE.START:
@@ -79,21 +91,37 @@ class RangeSelectCalendar extends Component {
       );
     }
 
+    const inputValue = startDay
+      ? startDay.format("DD/MM/YY") +
+        (endDay ? " - " + endDay.format("DD/MM/YY") : "")
+      : "";
+
     return (
-      <Calendar
-        monthGridProps={{
-          monthMoments
-        }}
-        dayProps={{
-          modifiers,
-          onClick: this.onDayClick,
-          onMouseEnter: (e, { dayMoment }) =>
-            this.setState({ hoverDay: dayMoment }),
-          onMouseLeave: () => this.setState({ hoverDay: null })
-        }}
-      />
+      <div>
+        <Popup
+          button={<input value={inputValue} readOnly />}
+          renderContent={() => (
+            <Calendar
+              className="dropdown"
+              navButtonProps={{
+                navigate: this.navigate
+              }}
+              monthGridProps={{
+                monthMoments
+              }}
+              dayProps={{
+                modifiers,
+                onClick: this.onDayClick,
+                onMouseEnter: (_, { dayMoment }) =>
+                  this.setState({ hoverDay: dayMoment }),
+                onMouseLeave: () => this.setState({ hoverDay: null })
+              }}
+            />
+          )}
+        />
+      </div>
     );
   }
 }
 
-export default RangeSelectCalendar;
+export default ButtonNavigationCalendar;

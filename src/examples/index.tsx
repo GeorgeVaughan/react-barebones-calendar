@@ -8,8 +8,8 @@ import CombinedCalendar from "./CombinedCalendar";
 import ScrollCalendar from "./ScrollCalendar";
 import LargeCalendar from "./LargeCalendar";
 
-import "styles/defaultStyle.css";
-import "./index.css";
+import "styles/defaultStyle.scss";
+import "./index.scss";
 
 const TEMPLATES = [
   {
@@ -58,7 +58,7 @@ const TEMPLATES = [
 export default () => (
   <div className="templates">
     <h1>Templates</h1>
-    {TEMPLATES.map(({ title, component, description, code }) => (
+    {TEMPLATES.map(({ title, component, description }) => (
       <div key={title} className="template">
         <h2>{title}</h2>
         <div className="component">{React.createElement(component)}</div>

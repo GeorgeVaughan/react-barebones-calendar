@@ -10,7 +10,7 @@ import {
   weekendModifier
 } from "components/utils/Modifiers";
 
-class DropdownCalendar extends Component {
+class DropdownCalendar extends Component<any, any> {
   constructor(props) {
     super(props);
 

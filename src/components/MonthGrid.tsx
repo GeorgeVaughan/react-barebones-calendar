@@ -18,7 +18,7 @@ const MonthGrid = ({
   ...props
 }) => (
   <div {...props}>
-    {monthMoments.map((monthMoment, i) => (
+    {monthMoments.map((monthMoment, _) => (
       <Month
         key={monthMoment.format("MMYYYY")}
         monthMoment={monthMoment}

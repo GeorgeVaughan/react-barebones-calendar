@@ -1,6 +1,8 @@
 import React from "react";
 
-class Popup extends React.Component {
+class Popup extends React.Component<any, any> {
+  root;
+
   constructor(props) {
     super(props);
 

@@ -11,9 +11,13 @@ import {
   weekendModifier
 } from "components/utils/Modifiers";
 
-import "./ScrollCalendar.css";
+import "./ScrollCalendar.scss";
 
-class ScrollCalendar extends Component {
+class ScrollCalendar extends Component<any, any> {
+  monthTitlesRefs;
+  scrollBoxRef;
+  addedTopMonth;
+
   constructor(props) {
     super(props);
 
@@ -124,7 +128,8 @@ class ScrollCalendar extends Component {
                       ref={ref =>
                         (this.monthTitlesRefs[
                           monthMoment.format("MMYYYY")
-                        ] = ref)}
+                        ] = ref)
+                      }
                       {...props}
                     >
                       {monthMoment.format("MMMM YYYY")}

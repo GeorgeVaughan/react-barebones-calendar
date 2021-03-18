@@ -11,9 +11,11 @@ import {
 } from "components/utils/Modifiers";
 import { combineClasses } from "components/utils/PropHelpers";
 
-import "styles/largeStyle.css";
+import "styles/largeStyle.scss";
 
-class LargeCalendarDay extends Component {
+class LargeCalendarDay extends Component<any, any> {
+  popup;
+
   constructor(props) {
     super(props);
 
@@ -91,7 +93,9 @@ class LargeCalendarDay extends Component {
   }
 }
 
-class LargeCalendar extends Component {
+class LargeCalendar extends Component<any, any> {
+  today;
+
   constructor(props) {
     super(props);
 

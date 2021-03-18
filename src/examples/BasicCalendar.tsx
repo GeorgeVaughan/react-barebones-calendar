@@ -9,7 +9,7 @@ import {
   weekendModifier
 } from "components/utils/Modifiers";
 
-class BasicCalendar extends Component {
+class BasicCalendar extends Component<any, any> {
   constructor(props) {
     super(props);
 

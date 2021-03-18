@@ -9,7 +9,7 @@ import {
   weekendModifier
 } from "components/utils/Modifiers";
 
-class NavigationCalendar extends Component {
+class NavigationCalendar extends Component<any, any> {
   constructor(props) {
     super(props);
 

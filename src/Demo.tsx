@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import Examples from "examples";
 
-import "./Demo.css";
+import "./Demo.scss";
 
-class Demo extends Component {
+class Demo extends Component<any, any> {
   render() {
     return (
       <div className="demo">

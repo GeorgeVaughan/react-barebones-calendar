@@ -1,13 +1,13 @@
-import moment from "moment";
+import moment, { Moment } from "moment";
 
 const TODAY = moment();
 export const getToday = () => TODAY;
 
-export const getDaysInMonth = moment => {
+export const getDaysInMonth = (moment: Moment) => {
   const startOfMonth = moment.startOf("month");
   const numberOfDays = startOfMonth.daysInMonth();
 
-  const daysInMonth = [];
+  const daysInMonth: Moment[] = [];
   for (let i = 0; i < numberOfDays; i++) {
     daysInMonth.push(startOfMonth.clone().add(i, "day"));
   }
@@ -21,7 +21,7 @@ export const getDaysInMonth2D = (moment, firstDayOfTheWeek = 0) => {
 
   let currentDay;
   let currentTableRowI = 0;
-  const table = [];
+  const table: (Moment | null)[][] = [];
 
   let nElementsToPrepend = Math.max(startDayWeekIndex - 1, 0);
   table[currentTableRowI] = [];
@@ -48,7 +48,7 @@ export const getDaysInMonth2D = (moment, firstDayOfTheWeek = 0) => {
 export const getMonthsFrom = (startMonthMoment, numberOfMonths) => {
   const s = startMonthMoment.clone();
 
-  const months = [];
+  const months: Moment[] = [];
   for (let i = 0; i < numberOfMonths; i++) {
     months.push(s.clone().add(i, "month"));
   }
