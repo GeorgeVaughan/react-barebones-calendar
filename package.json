@@ -28,8 +28,7 @@
     "moment": "^2.19.2",
     "react": "^16.1.1",
     "react-dom": "^16.1.1",
-    "react-scripts": "4.0.3",
-    "typescript": "^4.2.3"
+    "react-scripts": "4.0.3"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
@@ -41,7 +40,8 @@
     "rollup": "^2.41.5",
     "rollup-plugin-sass": "^1.2.2",
     "rollup-plugin-typescript2": "^0.30.0",
-    "tslib": "^2.1.0"
+    "tslib": "^2.1.0",
+    "typescript": "^4.0.0"
   },
   "peerDependencies": {
     "react": "^16.8.0",
